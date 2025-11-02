@@ -37,9 +37,10 @@ body {
     display: grid;
     grid-template-columns: 200px minmax(0, 1fr);
     gap: 32px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 0px 0 0px;
+    max-width: 1150px;
+    margin-left: 430px;
+    margin-right: auto;
+    padding: 0 24px 0 0;
 }
 
 .main-content .container {
