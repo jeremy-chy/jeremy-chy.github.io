@@ -1,6 +1,46 @@
 // Set current year in footer
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+// Build dynamic table of contents
+const tocContainer = document.getElementById('tocList');
+const tocSections = Array.from(document.querySelectorAll('[data-toc-title]'));
+const tocLinksMap = new Map();
+
+const slugify = (text) => text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
+if (tocContainer && tocSections.length) {
+    const existingIds = new Set(tocSections.filter(section => section.id).map(section => section.id));
+
+    tocSections.forEach((section, index) => {
+        const tocTitle = section.dataset.tocTitle || section.querySelector('h2, h3')?.textContent?.trim() || `Section ${index + 1}`;
+        let sectionId = section.id;
+
+        if (!sectionId) {
+            const baseId = slugify(tocTitle) || `section-${index + 1}`;
+            sectionId = baseId;
+            let suffix = 1;
+            while (existingIds.has(sectionId)) {
+                sectionId = `${baseId}-${suffix++}`;
+            }
+            section.id = sectionId;
+            existingIds.add(sectionId);
+        }
+
+        const link = document.createElement('a');
+        link.className = 'toc-link';
+        link.href = `#${sectionId}`;
+        link.textContent = tocTitle;
+        tocContainer.appendChild(link);
+        tocLinksMap.set(sectionId, link);
+    });
+}
+
 // Add scroll animations
 const observerOptions = {
     threshold: 0.1,
@@ -23,6 +63,35 @@ document.querySelectorAll('.news-section, .publications-section').forEach(sectio
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
+
+// Update active ToC link based on scroll position
+let activeTocId = null;
+
+const updateActiveTocLink = (scrollY) => {
+    if (!tocSections.length) return;
+
+    const offset = 140;
+    const currentPosition = (typeof scrollY === 'number' ? scrollY : window.scrollY) + offset;
+    let currentSectionId = tocSections[0].id;
+
+    tocSections.forEach(section => {
+        if (section.offsetTop <= currentPosition) {
+            currentSectionId = section.id;
+        }
+    });
+
+    if (currentSectionId !== activeTocId) {
+        if (activeTocId && tocLinksMap.has(activeTocId)) {
+            tocLinksMap.get(activeTocId).classList.remove('active');
+        }
+        if (tocLinksMap.has(currentSectionId)) {
+            tocLinksMap.get(currentSectionId).classList.add('active');
+        }
+        activeTocId = currentSectionId;
+    }
+};
+
+window.addEventListener('load', () => updateActiveTocLink(window.scrollY));
 
 // Smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -48,6 +117,7 @@ window.addEventListener('scroll', () => {
         const parallaxValue = currentScrollY * 0.2;
         photoWrapper.style.transform = `translateY(${parallaxValue}px)`;
     }
+    updateActiveTocLink(currentScrollY);
     lastScrollY = currentScrollY;
 });
 
@@ -72,52 +142,4 @@ function typeWriter(element, text, speed = 100) {
 //     const originalText = nameElement.textContent;
 //     typeWriter(nameElement, originalText, 80);
 // });
-
-window.addEventListener('load', () => {
-    const tocContainer = document.getElementById('toc');
-    const sections = document.querySelectorAll('.container section[class]');
-    const tocList = document.createElement('ul');
-
-    sections.forEach((section, index) => {
-        const titleElement = section.querySelector('h2');
-        if (titleElement) {
-            const titleText = titleElement.textContent;
-            let sectionId = section.id;
-            if (!sectionId) {
-                sectionId = titleText.toLowerCase().replace(/\s+/g, '-');
-                section.id = sectionId;
-            }
-
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = `#${sectionId}`;
-            link.textContent = titleText;
-            listItem.appendChild(link);
-            tocList.appendChild(listItem);
-        }
-    });
-
-    if (tocContainer) {
-        tocContainer.appendChild(tocList);
-    }
-    
-    const tocLinks = document.querySelectorAll('#toc a');
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                tocLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-});
 
