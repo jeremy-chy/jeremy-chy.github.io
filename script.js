@@ -73,3 +73,51 @@ function typeWriter(element, text, speed = 100) {
 //     typeWriter(nameElement, originalText, 80);
 // });
 
+window.addEventListener('load', () => {
+    const tocContainer = document.getElementById('toc');
+    const sections = document.querySelectorAll('.container section[class]');
+    const tocList = document.createElement('ul');
+
+    sections.forEach((section, index) => {
+        const titleElement = section.querySelector('h2');
+        if (titleElement) {
+            const titleText = titleElement.textContent;
+            let sectionId = section.id;
+            if (!sectionId) {
+                sectionId = titleText.toLowerCase().replace(/\s+/g, '-');
+                section.id = sectionId;
+            }
+
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `#${sectionId}`;
+            link.textContent = titleText;
+            listItem.appendChild(link);
+            tocList.appendChild(listItem);
+        }
+    });
+
+    if (tocContainer) {
+        tocContainer.appendChild(tocList);
+    }
+    
+    const tocLinks = document.querySelectorAll('#toc a');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+});
+
