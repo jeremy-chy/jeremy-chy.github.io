@@ -53,20 +53,19 @@ body {
     position: sticky;
     top: 200px;
     align-self: start;
-    padding: 20px;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
+    padding: 20px 0;
     min-width: 180px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .toc-header {
     padding-bottom: 16px;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .toc-name {
@@ -484,6 +483,92 @@ body {
     opacity: 0.3;
 }
 
+/* Awards Section */
+.awards-section {
+    padding: 20px 0 40px;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.awards-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.awards-list li {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding-left: 24px;
+    position: relative;
+}
+
+.awards-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Miscellaneous Section */
+.misc-section {
+    padding: 20px 0 40px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.misc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.misc-item {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.misc-item:hover {
+    background: var(--bg-primary);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.misc-subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+}
+
+.misc-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.misc-list li {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+}
+
+.misc-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
 /* Footer */
 .footer {
     padding: 40px 0;
@@ -569,11 +654,14 @@ body::before {
         flex-wrap: wrap;
         gap: 24px;
         padding: 20px;
+        background: none;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
     }
 
     .toc-header {
         width: 100%;
-        border-bottom: 1px solid var(--border-color);
         padding-bottom: 12px;
     }
 
