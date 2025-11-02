@@ -143,3 +143,59 @@ function typeWriter(element, text, speed = 100) {
 //     typeWriter(nameElement, originalText, 80);
 // });
 
+// Vanta.js background effect
+let vantaEffect;
+window.addEventListener('DOMContentLoaded', () => {
+    vantaEffect = VANTA.NET({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x3498db,
+        backgroundColor: 0xffffff
+    });
+    // Set initial Vanta theme
+    updateVantaTheme();
+});
+
+// Day/night mode toggle
+const themeSwitch = document.querySelector('#checkbox');
+
+const updateVantaTheme = () => {
+    if (!vantaEffect) return;
+    if (document.body.classList.contains('dark-mode')) {
+        vantaEffect.setOptions({
+            color: 0x3498db,
+            backgroundColor: 0x1c2833
+        });
+    } else {
+        vantaEffect.setOptions({
+            color: 0x3498db,
+            backgroundColor: 0xffffff
+        });
+    }
+};
+
+themeSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+    updateVantaTheme();
+});
+
+// Apply saved theme on page load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeSwitch.checked = true;
+    }
+}
+
