@@ -6,9 +6,16 @@
 //  Fields:
 //    date    - free-form date string
 //    image   - path to an illustration (optional)
+//    logo    - set true if the image is a logo (rendered "contain" on white)
 //    content - the news text; HTML is allowed (e.g. <b>...</b>)
 // =============================================================
 const newsPosts = [
+    {
+        date: "June 2026",
+        image: "material/news/applovin.svg",
+        logo: true,
+        content: "I joined the <b>Robotics team at AppLovin</b> as a <b>Research Scientist Intern</b>, working on <b>dexterous manipulation</b>."
+    },
     // {
     //     date: "Oct 20, 2025",
     //     image: "material/news/UIUC-Robot-Lab.jpg",
@@ -50,9 +57,9 @@ function renderNewsList(container, posts) {
 
         if (post.image) {
             const img = document.createElement('img');
-            img.className = 'news-image';
+            img.className = post.logo ? 'news-image logo' : 'news-image';
             img.src = post.image;
-            img.alt = 'News illustration';
+            img.alt = post.logo ? 'Logo' : 'News illustration';
             img.loading = 'lazy';
             item.appendChild(img);
         }
