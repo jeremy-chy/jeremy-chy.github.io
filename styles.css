@@ -663,47 +663,57 @@ body {
     transform: translateX(-3px);
 }
 
-/* Article language toggle (EN / 中文) */
-.article-topbar {
+/* Article meta line: date on the left, language switch on the right */
+.article-meta-row {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 24px;
+    max-width: 720px;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.article-topbar .back-link {
-    margin-bottom: 0;
+.article-meta-row .article-meta {
+    margin: 0;
 }
 
-.lang-toggle {
+/* Subtle editorial language switch (English / 中文) */
+.lang-switch {
     display: inline-flex;
-    border: 1px solid var(--border-color);
-    border-radius: 999px;
-    overflow: hidden;
-    background: var(--bg-secondary);
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
 }
 
-.lang-toggle button {
+.lang-switch button {
     border: none;
-    background: transparent;
-    padding: 6px 16px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    background: none;
+    padding: 0;
+    margin: 0;
     cursor: pointer;
     font-family: inherit;
-    transition: background 0.25s ease, color 0.25s ease;
+    font-size: inherit;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
 }
 
-.lang-toggle button.active {
-    background: var(--secondary-color);
-    color: #fff;
-}
-
-.lang-toggle button:not(.active):hover {
+.lang-switch button:hover {
     color: var(--secondary-color);
+}
+
+.lang-switch button.active {
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: default;
+}
+
+.lang-switch .sep {
+    color: var(--border-color);
+    user-select: none;
 }
 
 /* Publications Section */
