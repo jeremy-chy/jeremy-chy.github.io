@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanyang Chen - Academic Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260618-1218">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,7 +59,11 @@
                     </div>
                     <div class="thinking-box scroll-box">
                         <div class="thinking-list" id="blogList">
-                            <!-- Entries are rendered from blogs-data.js -->
+                            <a class="thinking-item" href="blogs/four-dials.html">
+                                <p class="thinking-item-date">Jun 18, 2026</p>
+                                <p class="thinking-item-title">Four Dials</p>
+                                <p class="thinking-item-summary">Four interlocking factors I use to read where society is heading under AI &mdash; and how to act on it.</p>
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -72,7 +76,27 @@
                     </div>
                     <div class="news-box scroll-box">
                         <div class="news-list" id="newsList">
-                            <!-- Entries are rendered from news-data.js -->
+                            <div class="news-item">
+                                <img src="material/news/applovin.svg" alt="AppLovin logo" class="news-image logo" loading="lazy">
+                                <div class="news-body">
+                                    <p class="news-date">June 2026</p>
+                                    <p class="news-content">I joined the <b>Robotics team at AppLovin</b> as a <b>Research Scientist Intern</b>, working on <b>dexterous manipulation</b>.</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <img src="material/news/era.jpg" alt="News illustration" class="news-image" loading="lazy">
+                                <div class="news-body">
+                                    <p class="news-date">Oct 14, 2025</p>
+                                    <p class="news-content"><b>ERA(Embodied Reasoning Agent)</b> is finished and released! Check out if you are interested in transforming a small VLM into Embodied Agent with <b>Pretraining</b> and <b>Online Reinforcement Learning</b>.</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <img src="material/news/ICML-25-Oral.jpg" alt="News illustration" class="news-image" loading="lazy">
+                                <div class="news-body">
+                                    <p class="news-date">July 12, 2025</p>
+                                    <p class="news-content">I am very fortunate to give an <b>Oral Talk at ICML 2025</b> for our work <b>EmbodiedBench</b>.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -207,9 +231,9 @@
         </main>
     </div>
 
-    <script src="blogs-data.js"></script>
-    <script src="news-data.js"></script>
-    <script src="script.js"></script>
+    <script src="blogs-data.js?v=20260618-1218"></script>
+    <script src="news-data.js?v=20260618-1218"></script>
+    <script src="script.js?v=20260618-1218"></script>
 </body>
 </html>
 

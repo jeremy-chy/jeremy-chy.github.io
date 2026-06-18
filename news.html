@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recent News - Hanyang Chen</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260618-1218">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,27 @@
                 <h1 class="section-title page-heading">Recent News</h1>
                 <p class="page-subtitle">Updates on research, talks, and releases.</p>
                 <div class="news-list" id="newsFullList">
-                    <!-- Entries are rendered from news-data.js -->
+                    <div class="news-item">
+                        <img src="material/news/applovin.svg" alt="AppLovin logo" class="news-image logo" loading="lazy">
+                        <div class="news-body">
+                            <p class="news-date">June 2026</p>
+                            <p class="news-content">I joined the <b>Robotics team at AppLovin</b> as a <b>Research Scientist Intern</b>, working on <b>dexterous manipulation</b>.</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="material/news/era.jpg" alt="News illustration" class="news-image" loading="lazy">
+                        <div class="news-body">
+                            <p class="news-date">Oct 14, 2025</p>
+                            <p class="news-content"><b>ERA(Embodied Reasoning Agent)</b> is finished and released! Check out if you are interested in transforming a small VLM into Embodied Agent with <b>Pretraining</b> and <b>Online Reinforcement Learning</b>.</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="material/news/ICML-25-Oral.jpg" alt="News illustration" class="news-image" loading="lazy">
+                        <div class="news-body">
+                            <p class="news-date">July 12, 2025</p>
+                            <p class="news-content">I am very fortunate to give an <b>Oral Talk at ICML 2025</b> for our work <b>EmbodiedBench</b>.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <footer class="footer">
@@ -50,7 +70,7 @@
         </main>
     </div>
 
-    <script src="news-data.js"></script>
+    <script src="news-data.js?v=20260618-1218"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         renderNewsList(document.getElementById('newsFullList'), newsPosts);

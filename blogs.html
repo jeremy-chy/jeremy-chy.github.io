@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs - Hanyang Chen</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260618-1218">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,11 @@
                 <h1 class="section-title page-heading">Blogs</h1>
                 <p class="page-subtitle">A running collection of notes, half-formed ideas, and things I am trying to understand.</p>
                 <div class="thinking-full-list" id="blogFullList">
-                    <!-- Entries are rendered from blogs-data.js -->
+                    <a class="thinking-item" href="blogs/four-dials.html">
+                        <p class="thinking-item-date">Jun 18, 2026</p>
+                        <p class="thinking-item-title">Four Dials</p>
+                        <p class="thinking-item-summary">Four interlocking factors I use to read where society is heading under AI &mdash; and how to act on it.</p>
+                    </a>
                 </div>
 
                 <footer class="footer">
@@ -50,7 +54,7 @@
         </main>
     </div>
 
-    <script src="blogs-data.js"></script>
+    <script src="blogs-data.js?v=20260618-1218"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         renderBlogList(document.getElementById('blogFullList'), blogPosts);
