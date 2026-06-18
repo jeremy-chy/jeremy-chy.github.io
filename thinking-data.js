@@ -3,7 +3,7 @@
 // -------------------------------------------------------------
 //  To add a new piece:
 //    1. Create an article page, e.g. thinking/my-post.html
-//       (copy thinking/example-post.html as a starting template).
+//       (copy an existing post in thinking/ as a starting template).
 //    2. Add an entry to the TOP of the array below.
 //
 //  Fields:
@@ -15,34 +15,10 @@
 // =============================================================
 const thinkingPosts = [
     {
-        title: "Why I started writing things down",
+        title: "Four Dials",
         date: "Jun 18, 2026",
-        summary: "A short note on keeping a public log of half-formed ideas, and why that is worth the embarrassment.",
-        url: "thinking/example-post.html"
-    },
-    {
-        title: "Decision making is just search under uncertainty",
-        date: "Jun 10, 2026",
-        summary: "Trying to unify how I think about planning, RL, and everyday choices.",
-        url: "thinking/example-post.html"
-    },
-    {
-        title: "Notes on embodied agents",
-        date: "May 28, 2026",
-        summary: "What changes once an agent has a body and the world stops being a frozen dataset.",
-        url: "thinking/example-post.html"
-    },
-    {
-        title: "On reading papers slowly",
-        date: "May 2, 2026",
-        summary: "A workflow for getting more out of fewer papers.",
-        url: "thinking/example-post.html"
-    },
-    {
-        title: "Things I was wrong about this year",
-        date: "Apr 15, 2026",
-        summary: "An incomplete and growing list.",
-        url: "thinking/example-post.html"
+        summary: "Four interlocking factors I use to read where society is heading under AI \u2014 and how to act on it.",
+        url: "thinking/four-dials.html"
     }
 ];
 

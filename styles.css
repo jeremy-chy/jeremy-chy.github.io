@@ -556,6 +556,27 @@ body {
     margin: 32px 0 12px;
 }
 
+.article-body ol,
+.article-body ul {
+    margin: 0 0 20px;
+    padding-left: 26px;
+    max-width: 720px;
+}
+
+.article-body li {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    margin-bottom: 10px;
+}
+
+.article-body code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.92em;
+    background: var(--bg-secondary);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
 .article-body a {
     color: var(--secondary-color);
     text-decoration: none;
