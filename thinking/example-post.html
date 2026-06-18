@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I started writing things down - Hanyang Chen</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <aside class="toc" id="toc">
+            <div class="toc-header">
+                <div class="toc-name">Hanyang Chen</div>
+            </div>
+            <div class="toc-section">
+                <div class="toc-section-title">Navigation</div>
+                <nav class="toc-list">
+                    <a href="../index.html" class="toc-link">Home</a>
+                    <a href="../thinking.html" class="toc-link">All Thinking</a>
+                </nav>
+            </div>
+            <div class="toc-section">
+                <div class="toc-section-title">Contact</div>
+                <div class="toc-contact">
+                    <a href="mailto:hc81@illinois.edu" class="toc-contact-link">Email</a>
+                    <a href="https://github.com/jeremy-chy" class="toc-contact-link" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="container">
+                <div style="height:60px;"></div>
+                <a href="../thinking.html" class="back-link"><span aria-hidden="true">&larr;</span> All Thinking</a>
+
+                <article class="article-body">
+                    <h1 class="section-title page-heading">Why I started writing things down</h1>
+                    <p class="article-meta">Jun 18, 2026</p>
+
+                    <p>This is an example article. It exists so the layout and links work end-to-end. Replace this file (or copy it) to publish your own thoughts.</p>
+
+                    <h2>How to add a new post</h2>
+                    <p>Duplicate this file inside the <code>thinking/</code> folder, give it a descriptive name like <code>2026-06-18-my-idea.html</code>, then edit the title, date, and body below. Finally, add an entry pointing to it at the top of the <code>thinkingPosts</code> array in <code>thinking-data.js</code>.</p>
+
+                    <h2>Write freely</h2>
+                    <p>You can use normal HTML here: paragraphs, <a href="../index.html">links</a>, headings, lists, images, and so on. Keep it simple and the shared stylesheet will handle the typography.</p>
+                </article>
+
+                <footer class="footer">
+                    <p>&copy; <span id="currentYear"></span> Hanyang Chen. All rights reserved.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -41,6 +41,11 @@ if (tocContainer && tocSections.length) {
     });
 }
 
+// Render the Thinking module on the homepage
+if (typeof thinkingPosts !== 'undefined') {
+    renderThinkingList(document.getElementById('thinkingList'), thinkingPosts);
+}
+
 // Add scroll animations
 const observerOptions = {
     threshold: 0.1,
@@ -57,7 +62,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections for scroll animations
-document.querySelectorAll('.news-section, .publications-section').forEach(section => {
+document.querySelectorAll('.news-section, .thinking-section, .publications-section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
