@@ -25,6 +25,8 @@ body {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    /* Default the whole site to ~80% visual scale (equivalent to browser zoom 80%) */
+    zoom: 0.8;
 }
 
 .container {
@@ -417,7 +419,7 @@ body {
     transform: translateX(3px);
 }
 
-.thinking-box {
+.scroll-box {
     margin-top: 18px;
     height: 320px;
     overflow-y: auto;
@@ -427,21 +429,26 @@ body {
     padding: 6px 10px 6px 6px;
 }
 
-.thinking-box::-webkit-scrollbar {
+.scroll-box::-webkit-scrollbar {
     width: 8px;
 }
 
-.thinking-box::-webkit-scrollbar-track {
+.scroll-box::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.thinking-box::-webkit-scrollbar-thumb {
+.scroll-box::-webkit-scrollbar-thumb {
     background: var(--border-color);
     border-radius: 4px;
 }
 
-.thinking-box::-webkit-scrollbar-thumb:hover {
+.scroll-box::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
+}
+
+/* News items inside the scroll box get a little inner padding */
+.news-box .news-list {
+    padding: 10px;
 }
 
 .thinking-list {

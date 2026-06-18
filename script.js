@@ -46,6 +46,11 @@ if (typeof thinkingPosts !== 'undefined') {
     renderThinkingList(document.getElementById('thinkingList'), thinkingPosts);
 }
 
+// Render the Recent News module on the homepage
+if (typeof newsPosts !== 'undefined') {
+    renderNewsList(document.getElementById('newsList'), newsPosts);
+}
+
 // Add scroll animations
 const observerOptions = {
     threshold: 0.1,
