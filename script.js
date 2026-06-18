@@ -41,9 +41,9 @@ if (tocContainer && tocSections.length) {
     });
 }
 
-// Render the Thinking module on the homepage
-if (typeof thinkingPosts !== 'undefined') {
-    renderThinkingList(document.getElementById('thinkingList'), thinkingPosts);
+// Render the Blogs module on the homepage
+if (typeof blogPosts !== 'undefined') {
+    renderBlogList(document.getElementById('blogList'), blogPosts);
 }
 
 // Render the Recent News module on the homepage

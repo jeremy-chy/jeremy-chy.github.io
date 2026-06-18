@@ -1,9 +1,9 @@
 // =============================================================
-//  Thinking posts
+//  Blog posts
 // -------------------------------------------------------------
 //  To add a new piece:
-//    1. Create an article page, e.g. thinking/my-post.html
-//       (copy an existing post in thinking/ as a starting template).
+//    1. Create an article page, e.g. blogs/my-post.html
+//       (copy an existing post in blogs/ as a starting template).
 //    2. Add an entry to the TOP of the array below.
 //
 //  Fields:
@@ -13,17 +13,17 @@
 //    url      - link to the article page (or any URL)
 //    external - set true to open the link in a new tab (optional)
 // =============================================================
-const thinkingPosts = [
+const blogPosts = [
     {
         title: "Four Dials",
         date: "Jun 18, 2026",
         summary: "Four interlocking factors I use to read where society is heading under AI \u2014 and how to act on it.",
-        url: "thinking/four-dials.html"
+        url: "blogs/four-dials.html"
     }
 ];
 
 // Renders the post list into a container element.
-function renderThinkingList(container, posts) {
+function renderBlogList(container, posts) {
     if (!container) return;
     container.innerHTML = '';
 

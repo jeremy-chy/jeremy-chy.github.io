@@ -1,4 +1,4 @@
-// Shared behavior for Thinking article pages.
+// Shared behavior for blog article pages.
 // - Sets the footer year.
 // - Wires up the EN / 中文 language toggle.
 //
