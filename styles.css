@@ -610,6 +610,49 @@ body {
     transform: translateX(-3px);
 }
 
+/* Article language toggle (EN / 中文) */
+.article-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.article-topbar .back-link {
+    margin-bottom: 0;
+}
+
+.lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.lang-toggle button {
+    border: none;
+    background: transparent;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.lang-toggle button.active {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.lang-toggle button:not(.active):hover {
+    color: var(--secondary-color);
+}
+
 /* Publications Section */
 .publications-section {
     padding: 20px 0 60px;
